@@ -42,7 +42,6 @@ modo = input(
 
 contagem = {base: 0 for base in bases_escolhidas}
 
-print("\n🧬 SUA HÉLICE 🧬\n")
 
 for i in range(quant):
     base = choice(list(bases_escolhidas.keys()))
@@ -51,31 +50,31 @@ for i in range(quant):
 
     angulo = i * 0.65
 
-    # Posição das duas fitas
+    #posição das duas fitas
     x1 = math.sin(angulo)
     x2 = math.sin(angulo + math.pi)
 
     pos1 = round((x1 + 1) * 12)
     pos2 = round((x2 + 1) * 12)
 
-    # Escolhe a ligação entre as bases
+    #escolhe a ligação entre as bases
     ponte = '=' if base in {'A', 'T', 'U'} else '≡'
 
-    # Monta a linha com as letras coloridas
+    #monta a linha com as letras coloridas
     largura = 27
     linha = [' '] * largura
 
     inicio = min(pos1, pos2)
     fim = max(pos1, pos2)
 
-    # Ligações entre as fitas
+    #ligações entre as fitas
     for j in range(inicio + 1, fim):
         linha[j] = '-'
 
     linha[pos1] = cores[base]
     linha[pos2] = cores[par]
 
-    # Coloca a ligação no centro
+    #coloca a ligação no centro
     meio = (pos1 + pos2) // 2
     linha[meio] = ponte
 
